@@ -39,6 +39,7 @@ class MyPage extends StatelessWidget {
               ),
               Expanded(
                 child: Listex(
+                  filters: const ['Tunisia','Algeria','Maroco','A1','My nigga', 'Never'],
                   itemsCount: 10,
                   itemBuilder: (context, index) {
                     return Padding(

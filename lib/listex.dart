@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class Listex extends StatefulWidget {
   final int itemsCount;
   final Widget Function(BuildContext, int) itemBuilder;
+  final List<String> filters;
 
   const Listex({
     Key? key,
     required this.itemsCount,
     required this.itemBuilder,
+    required this.filters,
   }) : super(key: key);
 
   @override
@@ -17,9 +19,23 @@ class Listex extends StatefulWidget {
 class _ListexState extends State<Listex> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: widget.itemsCount,
-      itemBuilder: widget.itemBuilder,
+    return Column(
+      children: [
+        Wrap(
+          children: widget.filters.map((e) => Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 10,
+            ),
+            child: Chip(label: Text(e)),
+          )).toList(),
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: widget.itemsCount,
+            itemBuilder: widget.itemBuilder,
+          ),
+        )
+      ],
     );
   }
 }

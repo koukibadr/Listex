@@ -27,31 +27,33 @@ class MyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.white,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          children: [
-            Text(
-              'Listex package demo',
-              style: Theme.of(context).textTheme.headline5,
-            ),
-            Expanded(
-              child: Listex(
-                itemsCount: 10,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Container(
-                      width: 200,
-                      height: 10,
-                      color: Colors.red,
-                    ),
-                  );
-                },
+      body: SafeArea(
+        child: Container(
+          color: Colors.white,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            children: [
+              Text(
+                'Listex package demo',
+                style: Theme.of(context).textTheme.headline5,
               ),
-            )
-          ],
+              Expanded(
+                child: Listex(
+                  itemsCount: 10,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Container(
+                        width: 200,
+                        height: 10,
+                        color: Colors.red,
+                      ),
+                    );
+                  },
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

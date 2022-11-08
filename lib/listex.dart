@@ -21,15 +21,20 @@ class _ListexState extends State<Listex> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Wrap(
-          children: widget.filters.map((e) => Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 10,
-            ),
-            child: Chip(label: Text(e)),
-          )).toList(),
+        SizedBox(
+          height: 40,
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: widget.filters.map((e) => Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10,
+              ),
+              child: Chip(label: Text(e)),
+            )).toList(),
+          ),
         ),
         Expanded(
+          flex: 4,
           child: ListView.builder(
             itemCount: widget.itemsCount,
             itemBuilder: widget.itemBuilder,
